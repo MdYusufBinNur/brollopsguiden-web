@@ -27,45 +27,51 @@
       </v-slide-group>
     </v-sheet>
     <v-divider :thickness="1" color="black" style="opacity: initial"/>
-    <div class="mt-4">
-      <v-img src="/image/img.png" cover="true" />
-    </div>
-
-    <v-container class="mt-4 px-5">
-      <div class="text-h4 text-primary px-15">
-        Trending Article
-        <v-divider :thickness="1"  color="primary" style="opacity: inherit" class="px-8 mt-3" />
-      </div>
-
-      <v-card
-          v-for="(item, i) in trendingItems" :key="i"
-          flat="true"
-          color="transparent"
-          style="width: 100%"
-          class="px-15 py-2"
-      >
-        <v-card-item class="px-0">
-          <template v-slot:title>
-            <div class="text-h6 text-primary text-uppercase ">
-              {{ item.title }}
+    <v-container>
+      <v-row>
+        <v-col :cols="$vuetify.display.xs ? 12 : 6" class="" style="align-self: center">
+          <div class="mt-4" >
+            <v-img :src="$vuetify.display.smAndUp ? '/trending/img.png' :'/image/img.png'" cover="true" />
+          </div>
+        </v-col>
+        <v-col :cols="$vuetify.display.xs ? 12 : 6">
+          <v-container>
+            <div class="text-h4 text-primary px-10">
+              Trending Article
+              <v-divider :thickness="1"  color="primary" style="opacity: inherit" class="px-8 mt-3" />
             </div>
-            <v-spacer />
-          </template>
-          <template v-slot:append>
-            <v-icon color="primary" size="30">
-              <ArrowUpRightSVG />
-            </v-icon>
-          </template>
-        </v-card-item>
-        <v-divider :thickness="1"  color="primary" style="opacity: inherit" class="px-8" />
-      </v-card>
-      <div class="px-15 mt-3">
-        <v-btn color="primary" size="large" variant="outlined">
-          More
-        </v-btn>
-      </div>
-    </v-container>
+            <v-card
+                v-for="(item, i) in trendingItems" :key="i"
+                flat="true"
+                color="transparent"
+                style="width: 100%"
+                class="px-10 py-2"
+            >
+              <v-card-item class="px-0">
+                <template v-slot:title>
+                  <div class="text-h6 text-primary text-uppercase ">
+                    {{ item.title }}
+                  </div>
+                  <v-spacer />
+                </template>
+                <template v-slot:append>
+                  <v-icon color="primary" size="30">
+                    <ArrowUpRightSVG />
+                  </v-icon>
+                </template>
+              </v-card-item>
+              <v-divider :thickness="1"  color="primary" style="opacity: inherit" class="px-8" />
+            </v-card>
+            <div class="px-10 mt-3">
+              <v-btn color="primary" size="large" variant="outlined">
+                More
+              </v-btn>
+            </div>
+          </v-container>
 
+        </v-col>
+      </v-row>
+    </v-container>
   </v-container>
 </template>
 
