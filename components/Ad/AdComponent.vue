@@ -26,9 +26,7 @@
 </template>
 
 <script setup>
-export default {
-  name: "AdComponent"
-}
+
 </script>
 
 <style scoped>
